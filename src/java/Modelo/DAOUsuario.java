@@ -29,7 +29,7 @@ public class DAOUsuario extends conexion {
                 usu.getId_rol_fk().setNombre_rol(rs.getString("nombre_rol"));
             }
         } catch (Exception e) {
-            System.out.println("Error" + e.getMessage());
+            System.out.println("Error 2: " + e.getMessage());
         } finally {
             if(rs != null && rs.isClosed() == false){
                 rs.close();
@@ -39,7 +39,12 @@ public class DAOUsuario extends conexion {
                 st.close();
             }
             st = null;
+            if(cn != null && cn.isClosed() == false){
+                cn.close();
+            }
+            cn = null;
         }
+        return usu;
     }
     
 }
